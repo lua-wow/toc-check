@@ -1,0 +1,4 @@
+missing: missing.lua (from Broken.toc)
+missing: Core.lua (from init.xml)
+missing: sub/gone.lua (from sub/sub.xml)
+missing: data/[Game]/none.lua (from Broken.toc)

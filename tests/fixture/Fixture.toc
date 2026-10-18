@@ -1,0 +1,8 @@
+## Interface: 120001
+## Title: Fixture
+
+# comment
+Fixture.lua
+core\init.xml
+core\classic.lua  [AllowLoadGameType classic]
+data\[Game]\spells.lua

@@ -1,0 +1,30 @@
+name: Test
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Shellcheck
+        run: shellcheck check.sh
+
+      - name: Check fixture
+        uses: ./
+        with:
+          path: tests/fixture
+
+      - name: Check broken fixture
+        env:
+          ADDON_PATH: tests/broken
+        run: |
+          ! bash check.sh > "$RUNNER_TEMP/broken.txt" || exit 1
+          diff "$RUNNER_TEMP/broken.txt" tests/broken.txt
