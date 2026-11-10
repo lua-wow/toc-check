@@ -65,8 +65,8 @@ while IFS= read -r line || [[ -n $line ]]; do
     line=${line%$'\r'}
     line=${line#"${line%%[![:space:]]*}"}
     [[ -z $line || $line == \#* ]] && continue
-    # strip trailing [AllowLoad...] directives
-    while [[ $line =~ ^(.*[^[:space:]])[[:space:]]*\[Allow[^]]*\][[:space:]]*$ ]]; do
+    # strip trailing directives ([AllowLoad...], [ExcludeLoad...], ...); paths end in an extension
+    while [[ $line =~ ^(.*[^[:space:]])[[:space:]]*\[[^]]*\][[:space:]]*$ ]]; do
         line=${BASH_REMATCH[1]}
     done
     line=${line%"${line##*[![:space:]]}"}

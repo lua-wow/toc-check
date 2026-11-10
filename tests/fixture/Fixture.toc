@@ -5,4 +5,5 @@
 Fixture.lua
 core\init.xml
 core\classic.lua  [AllowLoadGameType classic]
+core\core.lua [AllowLoadGameType mainline] [ExcludeLoadGameType standard]
 data\[Game]\spells.lua
